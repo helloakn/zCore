@@ -7,19 +7,19 @@ if __name__ == "__main__":
     #route.Begin()
     hostName = "localhost"
     serverPort = 8080 
-    SVR = APP(hostName, serverPort)
+    app = APP(hostName, serverPort)
     #SVR.route = "asdfasdfasdf"
     #print(SVR.getRoute())
-    route = Route(SVR)
+    route = Route(app)
     #routeList = route.Begin(SVR)
-    print(SVR.route)
-    SVR = SVR.Star()
+    #print(SVR.route)
+    app = app.Star()
     print("Server started http://%s:%s" % (hostName, serverPort))
 
     try:
-        SVR.serve_forever()
+        app.serve_forever()
     except KeyboardInterrupt:
         pass
 
-    SVR.server_close()
+    app.server_close()
     print("Server stopped.")

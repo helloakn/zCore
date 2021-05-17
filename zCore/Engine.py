@@ -18,15 +18,15 @@ class APP():
         self.route = text
 
     def Star(self):
-        webServer = WebServer(self.route);
+        webServer = WebServer(self.route)
         self.SVR = HTTPServer((self.hostName, self.serverPort), webServer)
         return self.SVR 
 
     def addRoute(self,requestMethod,requestURL,Controller,Function):
         #print(requestMethod)
         #print(requestURL)
-        print(Controller)
-        print(Function)
+        #print(Controller)
+        #print(Function)
 
         objFunction = self.modLoader(Controller+"."+Function)
         some_object = objFunction("hello world")
@@ -39,4 +39,12 @@ class APP():
         return mod
     def getRoute(self):
         return self.route
+    def prefix(self,prefixName,customRoute):
+        print('Fucking PRefix => '+prefixName)
+        #print("fucking route -> "+str(self.route))
+        print(customRoute)
+        #print("And all the rest... %s" % list(routelist))
+
+
+    
         
