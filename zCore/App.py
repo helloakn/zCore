@@ -18,17 +18,17 @@ class App():
     def checkRoute(self,reqUrl):
         #print("this is is fucking request -> " + reqUrl)
         parameters = None
-        print("xxxxx all route xxxxx")
-        print(self.routeList)
-        print('end all route')
+        #print("xxxxx all route xxxxx")
+        #print(self.routeList)
+        #print('end all route')
         for rURL in self.routeList:
             #print(rURL[1])
             original_urls = rURL[1].split("/")
             request_urls = reqUrl.split("/")
-            print("org and req url")
-            print(original_urls)
-            print(request_urls)
-            print("=x=")
+            #print("org and req url")
+            #print(original_urls)
+            #print(request_urls)
+            #print("=x=")
             if(len(original_urls )==len(request_urls)):
                 tf = True;
                 #foreach($original_urls as $ok=>$ov){
@@ -63,7 +63,7 @@ class App():
         return False
     def goRoute(self,rURL,parameters):
         #print("fadsfasdfasd fasd fas df asdf asd fa +> => ")
-        print(rURL[2])
+        #print(rURL[2])
         controller = rURL[2]
         function = rURL[3]
         objFunction = self.modLoader(controller+"."+function)
@@ -76,7 +76,7 @@ class App():
         class WebServer(BaseHTTPRequestHandler):
             def do_GET(self):
                 #print('hello');
-                print("this is fucking path => "+self.path)
+                #print("this is fucking path => "+self.path)
                 requestPath = self.path.split("?")[0];
                 result = app.checkRoute(requestPath)
                 if(result):
@@ -101,7 +101,7 @@ class App():
             pass
 
         self.SVR.server_close()
-        print("Server stopped.")
+        #print("Server stopped.")
 
     def addRoute(self,requestMethod,requestURL,Controller,Function):
         #print("add route")
