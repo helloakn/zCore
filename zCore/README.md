@@ -43,3 +43,27 @@ select Host,User,plugin from mysql.user;
 | localhost | mysql.sys           | caching_sha2_password |
 | localhost | nativeuser          | mysql_native_password |
 | localhost | root                | caching_sha2_password |
+
+## Route
+
+```
+class Route():
+   def __init__(self,route):
+      route.addRoute('get','/d1','Controller.aknController','speak')
+      route.addRoute('get','/sayinghi','Controller.aknController','sayHi')
+        
+      route.prefix('/test',
+         Route.userRoute,
+         Route.adminRoute,
+      )
+      route.addRoute('get','hello','Controller.aknController','speak')
+
+    
+   def userRoute(route):
+      route.addRoute('get','user','Controller.aknController','speak')
+
+   def adminRoute(route):
+      route.addRoute('get','admin','Controller.aknController','speak')
+      route.addRoute('get','admin/Login','Controller.aknController','speak')
+
+```
